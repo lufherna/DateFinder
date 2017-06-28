@@ -8,7 +8,6 @@ var superHeroines = [
 		'name': 'Zatanna',
 		'photo':,
 		'scores': [3, 3, 4, 5, 5, 2, 2, 1, 3, 4]
-
 	}
 ]
 

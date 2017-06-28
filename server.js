@@ -18,8 +18,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json"}));
 app.use(express.static('app/public'));
 
 // node js requires these files in order to route 
-require('./app/routing/htmlRoutes.js');
-require('./app/routing/apiRoutes.js');
+require('./app/routing/htmlRoutes.js') (app);
+require('./app/routing/apiRoutes.js') (app);
 
 // console logs if it is listening on the proper port
 app.listen(PORT, function(){

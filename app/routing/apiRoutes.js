@@ -3,25 +3,20 @@ var friends = require('../data/friends.js');
 var path = require('path');
 
 // routes
-// this will display the possible friends matches in JSON format
+// this will display the possible super heroine matches in JSON format
 // ================
-app.get('/date/:matches?', function(req, res) {
-	var datePerson = req.params.matches;
+app.get('/date/friends', function(req, res) {
 
-	if (datePerson) {
-		console.log(datePerson);
+	res.JSON(superHeroines);
+})
 
-		for (var i = 0; i < matches.length; i++) {
-			if (datePerson === matches[i].name) {
-				return res.json(matches[i]);
-			}
-		  }
-		return res.json(false);
-	   }
-	return res.json(matches);
+app.post('/api/friends', function(req, res){
+
+	console.log('req.body.name:' + req.body.name);
+	console.log('req.body.scores.length:' + req.body.scores.length)
 })
 
 // route that takes in incoming survey results
-app.post('/date/new', function(req, res) {
+/*app.post('/date/new', function(req, res) {
 
-})
+})*/
