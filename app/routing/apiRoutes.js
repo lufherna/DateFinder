@@ -1,3 +1,7 @@
+// load data from other places
+var friends = require('../data/friends.js');
+var path = require('path');
+
 // routes
 // this will display the possible friends matches in JSON format
 // ================
@@ -19,5 +23,5 @@ app.get('/date/:matches?', function(req, res) {
 
 // route that takes in incoming survey results
 app.post('/date/new', function(req, res) {
-	
+
 })
