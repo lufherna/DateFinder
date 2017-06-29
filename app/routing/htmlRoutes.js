@@ -4,7 +4,7 @@ var path = require('path');
 // routes
 // ===============
 // exports these routes to be used where needed
-module.exports = function() {
+module.exports = function(app) {
 	// defaults to home page if the url ends with '/'
 	app.get('/', function(req, res) {
 		res.sendFile(path.join(__dirname + '/../public/home.html'))
