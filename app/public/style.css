@@ -1,0 +1,10 @@
+body {
+	font-family: 'Bangers', cursive;
+	background-image: url('superwomen.jpg');
+}
+
+.jumbotron {
+	background-color: transparent;
+	color: #2766FC; 
+	opacity: .9;
+}

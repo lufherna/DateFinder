@@ -31,7 +31,7 @@ module.exports = function(app) {
 
 			for (var l = 0; l < superHeroines[i].scores.length; l++) {
 
-				differenceList
+				differenceList.push( Math.abs(req.body.scores))
 			}
 		}
 	});
