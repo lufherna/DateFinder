@@ -8,3 +8,12 @@ body {
 	color: #2766FC; 
 	opacity: .9;
 }
+
+#nameId {
+	width: 100px;
+	
+}
+
+#userPic {
+	width: 45%;
+}
