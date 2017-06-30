@@ -19,52 +19,50 @@ module.exports = function(app) {
 
 	app.post("/api/friends", function(req, res){
 
-		console.log('req.body.name:' + req.body.name);
-		console.log('req.body.scores.length:' + req.body.scores.length);
+	/*	console.log('req.body.name:' + req.body.name);
+		console.log('req.body.scores.length:' + req.body.scores.length);*/
 
-		var match = {};
+	// grabs the users information in json format
+		var newFriend = req.body;
+		
+	// grabs the users score
+		var newFriendTotal = 0;
 
-		var difference = 100;
+	// loops through the users scores since it is now in friends.js
+		for (var i = 0; i < newFriend.scores.length; i++){
 
-		for (var i = 0; i < friends.length; i++){
-
-			var differenceList = [];
-			var totalDifference = 0;
-
-			for (var k = 0; k < friends[i].scores.length; k++) {
-
-				differenceList.push(Math.abs(req.body.scores[k] - friends[i].scores[i]))
+			// converts the users scores into integers to be used later
+				newFriendTotal += parseInt(newFriend.scores[i])
 			}
 
-			console.log(differenceList);
+			var minDiff = 500;
 
-			for (var u = 0; u < differenceList.length; u++){
+			var minMatch = 0;
 
-				totalDifference += differenceList[u];
+			// loops through superHeroines array
+				for(var i = 0; i < friends.length; i++) {
 
-			}
+					// subtracts users score 
+					var difference = newFriendTotal - parseInt(friends[i].scores);
 
-			console.log(totalDifference);
+					 //differenceArray.push( Math.abs( req.body.scores[j] - friends[i].scores[j] ) )
 
-			if (match == {}) {
+					if(difference < 0) difference *= -1;
 
-				match = friends[i];
-				difference = totalDifference; 
+					if(difference < minDiff){
+							minMatch = i;
+							minDiff = difference
+					}
+				}
 
-			} else if (totalDifference < difference) {
+			var matchFriend = friends[minMatch];
 
-				match = friends[i];
-				difference = totalDifference;
-			}
 
-			console.log(difference)
-
-			}
-
+			console.log('Match', matchFriend);
 			console.log("You'll be happy to date: " + match.name)
 
-			friends.push(req.body);
-			res.json(match);
+			friends.push(newFriend);
+			res.json(friends[minMatch]);
 	});
 }
 

@@ -29,11 +29,14 @@ $(document).on('click', "#submitSurvey", function(e){
 		scores: userArray
 	};
 
+	// posts users answers to friends api
 	$.post('/api/friends', userAnswer, function(data){
 
 			console.log(data.name);
 			console.log(data.photo);
-			$('#')
+			$('#superDate').html("<h3>" + data.name + "</h3><br><img src" + data.photo + " style='width:450px;'</img>" );
+			
+			$('#userModal').modal('show');
 	}
 
 /*	$.post('/api/friends', userArray, function(data) {
