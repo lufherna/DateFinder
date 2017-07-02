@@ -1,9 +1,12 @@
 // dependancies
+// this path package is necessary to get the correct file path for our html
 var path = require('path');
 
 // routes
 // ===============
 // exports these routes to be used where needed
+// below code handles when users 'visit' a page
+// in each of the below cases the user is shown an html page of the content
 module.exports = function(app) {
 	// defaults to home page if the url ends with '/'
 	app.get('/', function(req, res) {
